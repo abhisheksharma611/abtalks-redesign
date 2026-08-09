@@ -4,7 +4,7 @@
 
 ## 🚀 Live Demo
 
-**[Add your Vercel/Netlify URL here after deployment]**
+**https://abtalks-redesign-five-tan.vercel.app**
 
 ## 📱 Screens
 

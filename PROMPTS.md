@@ -4,6 +4,8 @@
 > **Problem Statement:** PS1 — Redesign ABTalks  
 > **Date:** August 9, 2026  
 > **Team:** Solo Developer  
+> **Live Demo:** https://abtalks-redesign-five-tan.vercel.app  
+> **GitHub Repo:** https://github.com/abhisheksharma611/abtalks-redesign  
 
 ---
 
