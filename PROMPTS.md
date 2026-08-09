@@ -3,7 +3,7 @@
 > **Hackathon:** ABTalks Vibe Code Hackathon 2026  
 > **Problem Statement:** PS1 — Redesign ABTalks  
 > **Date:** August 9, 2026  
-> **Team:** Solo Developer  
+> **Team:** Coders Arcade  
 > **Live Demo:** https://abtalks-redesign-five-tan.vercel.app  
 > **GitHub Repo:** https://github.com/abhisheksharma611/abtalks-redesign  
 
