@@ -1,6 +1,8 @@
+'use client'
+
+import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
-import { Flame, ChevronLeft, CheckCircle2, Clock, Zap, Github, Linkedin, ExternalLink, AlertCircle, Send } from 'lucide-react'
+import { Flame, ChevronLeft, CheckCircle2, Clock, Zap, Github, Linkedin, AlertCircle, Send } from 'lucide-react'
 import { allChallengeDays, student } from '@/data/mockData'
 
 function Navbar() {
@@ -23,43 +25,57 @@ function Navbar() {
 }
 
 function DifficultyBadge({ difficulty }: { difficulty: string }) {
-  const colors = {
+  const colors: Record<string, string> = {
     beginner: 'bg-green-500/20 text-green-300 border-green-500/30',
     intermediate: 'bg-yellow-500/20 text-yellow-300 border-yellow-500/30',
     advanced: 'bg-red-500/20 text-red-300 border-red-500/30',
   }
   return (
-    <span className={`text-xs px-2.5 py-1 rounded-full border ${colors[difficulty as keyof typeof colors]}`}>
+    <span className={`text-xs px-2.5 py-1 rounded-full border ${colors[difficulty] || colors.beginner}`}>
       {difficulty}
     </span>
   )
 }
 
 function TypeBadge({ type }: { type: string }) {
-  const colors = {
+  const colors: Record<string, string> = {
     build: 'bg-blue-500/20 text-blue-300 border-blue-500/30',
     learn: 'bg-purple-500/20 text-purple-300 border-purple-500/30',
     ship: 'bg-orange-500/20 text-orange-300 border-orange-500/30',
     setup: 'bg-slate-500/20 text-slate-300 border-slate-500/30',
   }
-  const icons = { build: '🔨', learn: '📚', ship: '🚀', setup: '⚙️' }
+  const icons: Record<string, string> = { build: '🔨', learn: '📚', ship: '🚀', setup: '⚙️' }
   return (
-    <span className={`text-xs px-2.5 py-1 rounded-full border ${colors[type as keyof typeof colors]}`}>
-      {icons[type as keyof typeof icons]} {type}
+    <span className={`text-xs px-2.5 py-1 rounded-full border ${colors[type] || colors.build}`}>
+      {icons[type] || '🔨'} {type}
     </span>
   )
 }
 
-export default async function DayPage({ params }: { params: Promise<{ dayNumber: string }> }) {
-  const { dayNumber } = await params
-  const day = parseInt(dayNumber)
-  const challenge = allChallengeDays.find(d => d.dayNumber === day)
+function DayContent({ dayNumber }: { dayNumber: number }) {
+  const challenge = allChallengeDays.find(d => d.dayNumber === dayNumber)
 
   if (!challenge) {
-    notFound()
+    return (
+      <main className="min-h-screen flex items-center justify-center px-4">
+        <div className="text-center">
+          <div className="text-6xl mb-4">🔍</div>
+          <h1 className="text-4xl font-bold gradient-text mb-3">404</h1>
+          <p className="text-slate-400 text-lg mb-2">Day {dayNumber} not found</p>
+          <p className="text-slate-500 text-sm mb-8">This challenge day doesn&apos;t exist yet.</p>
+          <Link
+            href="/dashboard"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 rounded-xl text-sm font-semibold transition-all glow-purple"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Back to Dashboard
+          </Link>
+        </div>
+      </main>
+    )
   }
 
-  const existingSubmission = student.submissions.find(s => s.day === day)
+  const existingSubmission = student.submissions.find(s => s.day === dayNumber)
 
   return (
     <main className="min-h-screen pb-12">
@@ -67,7 +83,7 @@ export default async function DayPage({ params }: { params: Promise<{ dayNumber:
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-6">
         {/* Day Header */}
         <div className="mb-8 animate-slide-up">
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex flex-wrap items-center gap-3 mb-3">
             <span className="text-xs px-2.5 py-1 rounded-full bg-primary-500/20 text-primary-300 border border-primary-500/30">
               Day {challenge.dayNumber} of 60
             </span>
@@ -264,4 +280,10 @@ export default async function DayPage({ params }: { params: Promise<{ dayNumber:
       </div>
     </main>
   )
+}
+
+export default function DayPage() {
+  const params = useParams()
+  const dayNumber = parseInt(params.dayNumber as string, 10)
+  return <DayContent dayNumber={dayNumber} />
 }
