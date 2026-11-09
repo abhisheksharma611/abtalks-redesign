@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { TriangleAlert } from 'lucide-react'
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   useEffect(() => {
@@ -8,16 +9,16 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
   }, [error])
 
   return (
-    <main className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center">
-        <div className="text-6xl mb-4">⚠️</div>
-        <h1 className="text-2xl font-bold mb-3">Something went wrong</h1>
-        <p className="text-slate-400 text-sm mb-6">{error.message}</p>
+    <main id="main" className="min-h-screen flex items-center justify-center px-4">
+      <div className="text-center max-w-md">
+        <TriangleAlert className="w-10 h-10 text-accent-ink mx-auto mb-4" strokeWidth={1.5} aria-hidden="true" />
+        <h1 className="font-display text-3xl font-semibold text-ink tracking-[-0.015em]">Something went wrong</h1>
+        <p className="mt-2 text-ink-2">The page hit an unexpected error.</p>
         <button
           onClick={reset}
-          className="px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 rounded-xl text-sm font-semibold transition-all"
+          className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-sm font-medium hover:bg-ink-2 transition-colors duration-150"
         >
-          Try Again
+          Try again
         </button>
       </div>
     </main>

@@ -1,20 +1,18 @@
 import Link from 'next/link'
-import { Flame, Home } from 'lucide-react'
+import { SearchX } from 'lucide-react'
 
 export default function NotFound() {
   return (
-    <main className="min-h-screen flex items-center justify-center px-4">
-      <div className="text-center">
-        <div className="text-6xl mb-4">🔍</div>
-        <h1 className="text-4xl font-bold gradient-text mb-3">404</h1>
-        <p className="text-slate-400 text-lg mb-2">Day not found</p>
-        <p className="text-slate-500 text-sm mb-8">This challenge day doesn&apos;t exist yet.</p>
+    <main id="main" className="min-h-screen flex items-center justify-center px-4">
+      <div className="text-center max-w-md">
+        <SearchX className="w-10 h-10 text-ink-3 mx-auto mb-4" strokeWidth={1.5} aria-hidden="true" />
+        <h1 className="font-display text-6xl font-bold text-ink tracking-[-0.02em]">404</h1>
+        <p className="mt-2 text-ink-2">That page does not exist.</p>
         <Link
-          href="/dashboard"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-500 hover:to-primary-600 rounded-xl text-sm font-semibold transition-all glow-purple"
+          href="/"
+          className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-sm font-medium hover:bg-ink-2 transition-colors duration-150"
         >
-          <Home className="w-4 h-4" />
-          Back to Dashboard
+          Back to home
         </Link>
       </div>
     </main>

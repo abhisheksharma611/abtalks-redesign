@@ -8,47 +8,42 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          50: '#f5f3ff',
-          100: '#ede9fe',
-          200: '#ddd6fe',
-          300: '#c4b5fd',
-          400: '#a78bfa',
-          500: '#8b5cf6',
-          600: '#7c3aed',
-          700: '#6d28d9',
-          800: '#5b21b6',
-          900: '#4c1d95',
-          950: '#2e1065',
+        paper: {
+          DEFAULT: 'oklch(97% 0.011 90 / <alpha-value>)',
+          2: 'oklch(93.5% 0.014 88 / <alpha-value>)',
+          3: 'oklch(89% 0.016 85 / <alpha-value>)',
         },
-        dark: {
-          50: '#f8fafc',
-          100: '#f1f5f9',
-          200: '#e2e8f0',
-          300: '#cbd5e1',
-          400: '#94a3b8',
-          500: '#64748b',
-          600: '#475569',
-          700: '#334155',
-          800: '#1e293b',
-          900: '#0f172a',
-          950: '#020617',
+        ink: {
+          DEFAULT: 'oklch(21% 0.018 60 / <alpha-value>)',
+          2: 'oklch(34% 0.018 58 / <alpha-value>)',
+          3: 'oklch(47% 0.02 62 / <alpha-value>)',
+          4: 'oklch(60% 0.016 65 / <alpha-value>)',
         },
+        accent: {
+          DEFAULT: 'oklch(66% 0.19 28 / <alpha-value>)',
+          ink: 'oklch(44% 0.165 26 / <alpha-value>)',
+          soft: 'oklch(66% 0.19 28 / 0.13)',
+        },
+
+      },
+      fontFamily: {
+        display: ['Khand', 'system-ui', 'sans-serif'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
+      },
+      borderRadius: {
+        control: '10px',
+        card: '14px',
+      },
+      transitionTimingFunction: {
+        out: 'cubic-bezier(0.16, 1, 0.3, 1)',
       },
       animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'bounce-slow': 'bounce 2s infinite',
-        'glow': 'glow 2s ease-in-out infinite alternate',
-        'slide-up': 'slideUp 0.5s ease-out',
-        'fade-in': 'fadeIn 0.6s ease-out',
+        'slide-up': 'slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+        'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
       },
       keyframes: {
-        glow: {
-          '0%': { boxShadow: '0 0 5px #8b5cf6, 0 0 10px #8b5cf6' },
-          '100%': { boxShadow: '0 0 20px #8b5cf6, 0 0 30px #8b5cf6' },
-        },
         slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '0%': { transform: 'translateY(12px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         fadeIn: {

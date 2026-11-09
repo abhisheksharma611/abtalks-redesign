@@ -1,128 +1,105 @@
+/* Hallmark · v2.0.0 · theme: custom (by request) · redesign: full · idea: "the episode wall, every ABTalksOnAI conversation one search away" · vibe: "warm workbench, ink on paper, one ember signal" · posture: restrained · hero: split, copy left, the studio right · nav: wordmark + one lead action · footer: hairline bar, wordmark over links · axes: light/condensed-heavy/chromatic-28 */
+/* Hallmark critique: poster-scale display voice, full light temperature, chromatic ember signal. Refused: glassmorphism, blur, glow, gradient fills, emoji icons, the cream+high-contrast-serif+clay cluster. */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #0a0a0f;
-  --foreground: #f1f5f9;
+  --font-body: 'Archivo', system-ui, -apple-system, sans-serif;
+  --paper: oklch(97% 0.011 90);
+  --paper-2: oklch(93.5% 0.014 88);
+  --paper-3: oklch(89% 0.016 85);
+  --ink: oklch(21% 0.018 60);
+  --ink-2: oklch(34% 0.018 58);
+  --ink-3: oklch(47% 0.02 62);
+  --ink-4: oklch(60% 0.016 65);
+  --rule: oklch(21% 0.018 60 / 0.14);
+  --accent: oklch(66% 0.19 28);
+  --accent-ink: oklch(44% 0.165 26);
+  --focus: oklch(52% 0.2 27);
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-micro: 120ms;
+  --dur-short: 220ms;
+  --dur-long: 420ms;
+
+  --background: var(--paper);
+  --foreground: var(--ink);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  overflow-x: clip;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
   min-height: 100vh;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
-::-webkit-scrollbar-track {
-  background: #1e293b;
+p {
+  text-wrap: pretty;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #6d28d9;
-  border-radius: 3px;
+button:active {
+  transform: scale(0.98);
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #7c3aed;
+button:disabled,
+[aria-disabled='true'] {
+  opacity: 0.55;
+  cursor: not-allowed;
 }
 
-/* Gradient text utility */
-.gradient-text {
-  background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 50%, #6d28d9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
-/* Glow effect */
-.glow-purple {
-  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3), 0 0 30px rgba(139, 92, 246, 0.1);
+::selection {
+  background: var(--accent);
+  color: var(--ink);
 }
 
-.glow-purple-strong {
-  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5), 0 0 40px rgba(139, 92, 246, 0.2);
+:focus:not(:focus-visible) {
+  outline: none;
 }
 
-/* Glass morphism */
-.glass {
-  background: rgba(30, 41, 59, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(139, 92, 246, 0.15);
-}
-
-/* Animated gradient border */
-.gradient-border {
-  position: relative;
-  border-radius: 16px;
-  background: #1e293b;
-}
-
-.gradient-border::before {
-  content: '';
-  position: absolute;
-  inset: -1px;
-  border-radius: 17px;
-  padding: 1px;
-  background: linear-gradient(135deg, #8b5cf6, #6d28d9, #a78bfa);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-/* Progress ring animation */
-@keyframes progress-ring {
-  from { stroke-dashoffset: 283; }
-}
-
-.animate-progress-ring {
-  animation: progress-ring 1.5s ease-out forwards;
-}
-
-/* Streak fire animation */
-@keyframes fire-flicker {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-.fire-animation {
-  animation: fire-flicker 0.8s ease-in-out infinite;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Shimmer effect for loading */
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-.shimmer {
-  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
-  background-size: 200% 100%;
-  animation: shimmer 2s infinite;
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

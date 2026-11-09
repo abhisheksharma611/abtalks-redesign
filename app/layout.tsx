@@ -1,9 +1,17 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'ABTalks — 60-Day Coding Challenge',
-  description: 'Build something every day. Share your proof of work. Get placed.',
+  metadataBase: new URL('https://abtalks-redesign-five-tan.vercel.app'),
+  title: {
+    default: 'ABTalksOnAI, a redesign concept | Vibe Code Hackathon 2026',
+    template: '%s | ABTalksOnAI redesign',
+  },
+  description: 'AI, work and the people building it. An unofficial redesign of the ABTalksOnAI podcast, built for the ABTalks Vibe Code Hackathon 2026. Not affiliated with ABTalksOnAI.',
+}
+
+export const viewport: Viewport = {
+  themeColor: 'oklch(97% 0.011 90)',
 }
 
 export default function RootLayout({
@@ -13,9 +21,20 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-[#0a0a0f] text-slate-100 antialiased">
-        {children}
-      </body>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=khand@500,600,700&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://www.googleapis.com/css2?family=Archivo:wght@400..700&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   )
 }

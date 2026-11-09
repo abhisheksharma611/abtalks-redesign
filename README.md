@@ -1,90 +1,47 @@
-# ABTalks — 60-Day Coding Challenge (Redesign)
+# ABTalksOnAI — Redesign (unofficial)
 
 > Problem Statement 1: Reimagine the ABTalks platform for the ABTalks Vibe Code Hackathon 2026.
+>
+> **Unofficial redesign concept. Not affiliated with, or endorsed by, ABTalksOnAI. Not deployed; not in any portfolio. All brand assets and marks belong to their owners.**
 
-## 🚀 Live Demo
+A (fictional-era) redesign concept of the ABTalksOnAI podcast rebuilt in "Workbench": warm paper, warm ink, one ember signal, Khand + Archivo, hairlines instead of cards and shadows.
 
-**https://abtalks-redesign-five-tan.vercel.app**
+## Routes
 
-## 📱 Screens
+| Route | What it is |
+|-------|------------|
+| `/` | Home, type-led hero with a new-episode card, initials voices grid |
+| `/the-show` | Why the show exists, four differences, host block |
+| `/conversations` | Episode index, working search, topic filter, three-way sort (53 entries) |
+| `/guests` | Guest directory (48 names derived from the dataset), familiar voices, suggest-a-guest form |
+| `/meet-anil` | The host, initials avatar, bio, published stats |
+| `/campus` | The story (podcast → 60-day challenge → campus), workshop brief, event notes |
 
-| Route | Description |
-|-------|-------------|
-| `/` | Landing page — first experience for new students |
-| `/dashboard` | Student dashboard — streak, today's task, progress |
-| `/day/12` | Challenge day — read task, submit proof of work |
+## Tech
 
-## 🛠️ Tech Stack
+Next.js 16 (App Router, static prerender) · TypeScript · Tailwind CSS 3 · Lucide icons. No backend, no database. Episode data lives in `data/content.ts` (facts only: titles, guests, durations, topics).
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Icons:** Lucide React
-- **Deployment:** Vercel / Netlify
-
-## 🏃 Quick Start
+## Quick start
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
 npm run build
-
-# Start production server
-npm run start
+npx next start -p 8000    # serves http://localhost:8000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Dev: `npm run dev`
 
-## 📁 Project Structure
+## IP position (2026-11-09)
 
-```
-├── app/
-│   ├── page.tsx              ← Landing Page (/)
-│   ├── layout.tsx            ← Root layout
-│   ├── globals.css           ← Global styles + animations
-│   ├── loading.tsx           ← Loading state
-│   ├── error.tsx             ← Error boundary
-│   ├── not-found.tsx         ← 404 page
-│   ├── dashboard/
-│   │   └── page.tsx          ← Student Dashboard (/dashboard)
-│   └── day/
-│       └── [dayNumber]/
-│           └── page.tsx      ← Challenge Day (/day/12)
-├── data/
-│   └── mockData.ts           ← All mocked JSON data
-└── PROMPTS.md                ← AI usage log (required for hackathon)
-```
+- Episode **facts** (titles, guests, durations, topics) are not copyrightable and are kept as an index; the links were removed. Nothing here navigates to ABTalksOnAI's properties.
+- No ABTalksOnAI assets are in this repository or referenced: no logo (wordmark is set in our type), no photographs (initials avatars), no copy of theirs (rewritten in our words), no thumbnails (text-only cards).
+- Every button that referenced their properties is an inert placeholder labelled as such (subscribe, YouTube, LinkedIn, community, campus enquiry; the guest-suggestion form is a disabled demo that drafts but sends nothing).
+- The footer notice and metadata mark this page as an unofficial redesign concept for the ABTalks Vibe Code Hackathon 2026. If ABTalksOnAI objects, this page comes down.
 
-## ✨ Key Features
+## Provenance
 
-- **Mobile-first design** — optimized for 390px viewport (judging width)
-- **Streak Freeze** — thoughtful UX feature to protect streaks
-- **Animated progress ring** — visual completion indicator
-- **Weekly activity heatmap** — track consistency at a glance
-- **Achievement system** — gamified progress tracking
-- **Edge case handling** — first day, missed day, empty profile, 404
-- **Glass morphism UI** — modern dark theme with purple accents
-- **Smooth animations** — fade-in, slide-up, glow effects
+Built 2026-11-09 from a full reverse-engineering of the public abtalks.in site (now documented in git history; sponsor imagery exists only inside the single local branch commit dated 2026-11-09, never pushed). See PROMPTS.md for the complete log and the IP decision history.
 
-## 📝 Route Map
+## License
 
-Per hackathon requirements:
-
-```
-/
-/dashboard
-/day/12
-```
-
-## 🤖 AI Usage
-
-This project was built using AI-assisted vibe coding. See [PROMPTS.md](./PROMPTS.md) for the complete AI usage log.
-
-## 📄 License
-
-Built for ABTalks Vibe Code Hackathon 2026.
+Built for the ABTalks Vibe Code Hackathon 2026.
