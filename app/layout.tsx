@@ -4,10 +4,10 @@ import './globals.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://abtalks-redesign-five-tan.vercel.app'),
   title: {
-    default: 'ABTalksOnAI, a redesign concept | Vibe Code Hackathon 2026',
-    template: '%s | ABTalksOnAI redesign',
+    default: 'ABTalksOnAI Redesign | ViCoDathon 2026',
+    template: '%s | ViCoDathon 2026',
   },
-  description: 'AI, work and the people building it. An unofficial redesign of the ABTalksOnAI podcast, built for the ABTalks Vibe Code Hackathon 2026. Not affiliated with ABTalksOnAI.',
+  description: 'AI, work and the people building it. An unofficial redesign of the ABTalksOnAI podcast, built for ViCoDathon 2026, India’s AI Vibe Coding Hackathon. Not affiliated with ABTalksOnAI.',
 }
 
 export const viewport: Viewport = {
