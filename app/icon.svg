@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="AB Talks: ember bar">
+  <rect width="64" height="64" rx="14" fill="#1f1610"/>
+  <path d="M32 11 L15 53 M32 11 L49 53" stroke="#f8f5ed" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <path d="M21.5 37.5 H42.5" stroke="#f0584b" stroke-width="7" stroke-linecap="round"/>
+</svg>

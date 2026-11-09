@@ -39,7 +39,7 @@ export default function CampusPage() {
         <p className="mt-5 text-lg text-ink-2 max-w-[56ch] leading-snug">
           The show asks hard questions about AI. Campus turns them into work students can show: a workshop run by the host, a challenge with public commits, a stage in front of an audience.
         </p>
-        <span aria-disabled="true" className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-base font-semibold opacity-85 cursor-default" title="Placeholder action in this unofficial redesign — wire to team@abtalks.in before going live">
+        <span aria-disabled="true" className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-base font-semibold opacity-85 cursor-default" title="Placeholder action in this unofficial redesign concept">
           Plan a campus workshop (placeholder)
         </span>
       </section>
@@ -80,7 +80,7 @@ export default function CampusPage() {
               Employers hire what they can verify: projects with names on them. This session connects what hiring teams ask for with the work students can put in their folder before the interview.
             </p>
             <p className="mt-6 text-sm text-ink-3 tabular-nums">60 to 90 minutes. Tailored to branch, year and AI exposure.</p>
-            <span aria-disabled="true" className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-base font-semibold opacity-85 cursor-default" title="Placeholder action in this unofficial redesign — wire to team@abtalks.in before going live">
+            <span aria-disabled="true" className="mt-6 inline-flex items-center min-h-[52px] px-6 rounded-control bg-ink text-paper text-base font-semibold opacity-85 cursor-default" title="Placeholder action in this unofficial redesign concept">
               Plan a campus workshop (placeholder)
             </span>
             <p className="mt-3 text-xs text-ink-3">Share your preferred date, student profile and audience size.</p>
